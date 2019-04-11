@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/commons.css" />
+</head>
+<body>
+    <!--弹窗-->
+    <div class="model">
+            {#    关闭弹窗#}
+        <div id="nav_links">当前位置：资产管理&nbsp;>&nbsp;<span style="color: #1A5CC6;">添加主机</span>
+            <div id="page_close" style="float: right;">
+                <a id="close" href="javascript:myclose();">
+                    <img src="/static/images/common/page_close.png" width="20" height="20" style="vertical-align: text-top; "/>
+                </a>
+            </div>
+        </div>
+        <form action="/add_win" method="POST">
+            <div class="add_win" style="padding-top: 100px;">
+                主机名&nbsp;&nbsp;&nbsp;
+                <input name="hostname" type="text" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;应用服务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input name="operation" type="text" />
+            </div>
+            <div class="add_win">
+                主机ID&nbsp;&nbsp;&nbsp;
+                <input name="hostid" type="text" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP地址&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input name="ip" type="text" />
+            </div>
+            <div class="add_win">
+                端口号&nbsp;&nbsp;&nbsp;
+                <input name="port" type="text" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机房地址&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input name="hostaddr" type="text" />
+            </div>
+            <div style="height: 60px;line-height: 60px;margin-left: 44px;">
+                主机状态&nbsp;&nbsp;&nbsp;
+                <input name="status" type="text" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主机类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input name="hosttype" type="text" />
+            </div>
+            <div style="margin-left: 282px;margin-top: 88px;">
+                <input type="submit" value="确定" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" value="清空" onclick="canceModel()" />
+                <span style="color: red;">{{ error_msg }}</span>
+            </div>
+        </form>
+    </div>
+    <script src="/static/scripts/jquery-1.12.4.js"></script>
+    <script>
+        function myclose() {
+            /**  关闭弹出iframe  **/
+            parent.$.fancybox.close();
+        }
+        function canceModel() {
+            $(".model input[type='text']").val("");
+        }
+    </script>
+
+</body>
+</html>
